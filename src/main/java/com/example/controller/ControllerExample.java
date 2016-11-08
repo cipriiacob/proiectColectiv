@@ -1,35 +1,34 @@
 package com.example.controller;
 
 
+import com.example.model.User;
+import com.example.repository.UserDaoJdbc;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 /**
  * Created by Cipri on 06-Nov-16.
  */
 @Controller
-@RequestMapping("/example")
+@RequestMapping("/users")
 public class ControllerExample {
-//
-//    private JdbcTemplate jdbcTemplate;
-//
-//    @Autowired
-//    private DataSource dataSource;
-//
-//    @RequestMapping("/get")
-//    public
-//    @ResponseBody
-//    ExampleDTO asd() {
-//
-//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-//        dataSource.setUrl("jdbc:mysql://localhost:3306/colectiv");
-//        dataSource.setUsername("root");
-//        dataSource.setPassword("1234");
-//        String sql = "SELECT * FROM user";
-//
-//        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-//
-//        return null;
-//    }
+
+
+    @Autowired
+    UserDaoJdbc userDaoJdbc;
+
+    @RequestMapping("/get")
+    public
+    @ResponseBody
+    List<User> asd() {
+
+        List<User> users = userDaoJdbc.getUsers();
+
+        return users;
+
+    }
 }

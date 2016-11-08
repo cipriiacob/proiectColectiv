@@ -26,17 +26,14 @@ public class UserDaoJdbc {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    public void doSomething() {
+    public List<User> getUsers() {
 
         String sql = "SELECT * FROM user";
-        try {
 
-            List<User> users = getUsersRowMapper();
-            System.out.println(users.size());
+        List<User> users = getUsersRowMapper();
+        System.out.println(users.size());
+        return users;
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     private List<User> getUsersRowMapper() {
