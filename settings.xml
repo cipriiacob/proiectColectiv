@@ -1,0 +1,19 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      https://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <profiles><profile>
+        <id>develop</id>
+        <!-- This is the development profile!
+        Please update the url to your database, the user and your password! -->
+        <properties>
+            <profile.id>develop</profile.id>
+            <database.url>jdbc:mysql://localhost:3306/colectiv</database.url>
+            <database.user>root</database.user>
+            <database.password>1234</database.password>
+        </properties>
+    </profile>
+    </profiles>
+    ...
+</settings>
