@@ -19,7 +19,7 @@ public class UserDaoJdbc {
 
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/android");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/proiect_colectiv");
         dataSource.setUsername("root");
         dataSource.setPassword("1234");
 
@@ -30,15 +30,32 @@ public class UserDaoJdbc {
 
         String sql = "SELECT * FROM user";
 
-        List<User> users = getUsersRowMapper();
+        List<User> users = jdbcTemplate.query(sql, getUserRowMapper());
         System.out.println(users.size());
         return users;
 
     }
+//
+//    private List<User> getUsersRowMapper() {
+//
+//        return this.jdbcTemplate.query("select * from user", new RowMapper<User>() {
+//            @Override
+//            public User mapRow(ResultSet rs, int i) throws SQLException {
+//
+//                int id = rs.getInt("id");
+//                String username = rs.getString("username");
+//                String password = rs.getString("password");
+//
+//                return new User(id, username, password);
+//
+//            }
+//        });
+//    }
 
-    private List<User> getUsersRowMapper() {
+    RowMapper<User> getUserRowMapper() {
 
-        return this.jdbcTemplate.query("select * from user", new RowMapper<User>() {
+        return new RowMapper<User>() {
+
             @Override
             public User mapRow(ResultSet rs, int i) throws SQLException {
 
@@ -49,17 +66,7 @@ public class UserDaoJdbc {
                 return new User(id, username, password);
 
             }
-        });
-    }
-
-    public User asd(ResultSet rs, int i) throws SQLException {
-
-        int id = rs.getInt("id");
-        String username = rs.getString("username");
-        String password = rs.getString("password");
-
-        return new User(id, username, password);
-
+        };
     }
 
 }
