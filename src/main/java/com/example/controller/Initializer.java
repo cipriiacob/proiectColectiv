@@ -15,15 +15,18 @@ public class Initializer {
     @Autowired
     UserDaoJdbc userDaoJdbc;
 
-    @RequestMapping(value = "/users")
-    public void users(){
 
+    @RequestMapping(value = "/users")
+    public void users() {
+
+        userDaoJdbc.newUser(1, "username", "password");
     }
 
     @RequestMapping(value = "/all")
-    public void all(){
+    public void all() {
+
+        users();
 
     }
-
 
 }
