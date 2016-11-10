@@ -23,6 +23,9 @@ class AuthService {
     if (index !== null) {
       LoginActions.loginUser(users[index]['id'], users[index]['username']);
     }
+    else {
+      return false;
+    }
     return true;
   }
 }
