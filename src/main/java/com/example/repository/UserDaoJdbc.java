@@ -36,6 +36,19 @@ public class UserDaoJdbc extends AbstractRepository {
 
     }
 
+    public int getUserIdByCredentials(String username, String password) {
+
+        String sql = "SELECT id FROM users WHERE username = ? AND password =?";
+
+        try {
+
+            return jdbcTemplate.queryForObject(sql, Integer.class, username, password);
+        } catch (EmptyResultDataAccessException e) {
+            throw new UserNotFoundException("User not found", e);
+        }
+    }
+
+
     public void newUser(int idRole, String username, String password) {
         //TODO: make this method to return the id of the newly added user
 
