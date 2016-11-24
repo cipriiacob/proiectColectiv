@@ -1,0 +1,32 @@
+{
+  "name": "fluxfrontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "connect": "^3.5.0",
+    "serve-static": "^1.11.1"
+  },
+  "devDependencies": {
+    "connect": "^3.5.0",
+    "serve-static": "^1.11.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/cipriiacob/proiectColectiv.git"
+  },
+  "keywords": [
+    "FLUX"
+  ],
+  "author": "MASCCARB",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cipriiacob/proiectColectiv/issues"
+  },
+  "homepage": "https://github.com/cipriiacob/proiectColectiv#readme"
+}
